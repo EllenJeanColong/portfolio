@@ -687,8 +687,85 @@
     animation: none;
   }
 }
+/* Scroll-triggered section animations */
+
+/* Only animate when JavaScript is ready */
+@media (prefers-reduced-motion: no-preference) {
+  html.scroll-animations-ready .scroll-reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s ease;
+  }
+
+  html.scroll-animations-ready .scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Accessibility: no movement for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
 </style>
 </head>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const sectionIds = [
+    "about",
+    "services",
+    "project",
+    "experience",
+    "skills"
+  ];
+
+  const sections = sectionIds
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+
+  // Keep content visible if animations are unsupported
+  if (!("IntersectionObserver" in window)) {
+    return;
+  }
+
+  // Respect accessibility preferences
+  if (window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches) {
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.08,
+      rootMargin: "0px 0px -30px 0px"
+    }
+  );
+
+  sections.forEach(section => {
+    section.classList.add("scroll-reveal");
+    observer.observe(section);
+  });
+
+  document.documentElement.classList.add(
+    "scroll-animations-ready"
+  );
+});
+</script>
 <body>
 <header>
 <div class="container nav">
