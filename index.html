@@ -570,6 +570,81 @@
 @media(max-width:850px) {
   .hero { background-position: 62% center; background-image: linear-gradient(90deg,rgba(250,250,249,.95),rgba(250,250,249,.82)),url('assets/home-office-background.png'); }
 }
+/* Professional portfolio animations */
+
+/* Introduction appears smoothly */
+.hero h1,
+.hero .lead,
+.hero .buttons {
+  animation: fadeUp 0.8s ease-out both;
+}
+
+.hero .lead {
+  animation-delay: 0.15s;
+}
+
+.hero .buttons {
+  animation-delay: 0.3s;
+}
+
+/* Profile picture entrance */
+.hero-image {
+  animation: fadeRight 1s ease-out both;
+  animation-delay: 0.2s;
+}
+
+/* Button hover animation */
+.btn,
+.textlink,
+.navcta {
+  transition: transform 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+.btn:hover,
+.navcta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(16, 29, 56, 0.15);
+}
+
+/* Keyframes */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .hero h1,
+  .hero .lead,
+  .hero .buttons,
+  .hero-image {
+    animation: none;
+  }
+
+  .btn,
+  .textlink,
+  .navcta {
+    transition: none;
+  }
+}
 </style>
 </head>
 <body>
