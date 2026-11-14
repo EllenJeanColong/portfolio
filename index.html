@@ -775,6 +775,43 @@
     animation: none !important;
   }
 }
+/* Minimalist work-from-home Skills background */
+
+#skills {
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.88),
+      rgba(255, 255, 255, 0.88)
+    ),
+    url("assets/minimalist-wfh-background.png") !important;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Keep the skill descriptions readable */
+#skills h2,
+#skills h3 {
+  color: #101d38;
+}
+
+#skills p {
+  color: #52617c;
+}
+
+/* Mobile-friendly background */
+@media (max-width: 850px) {
+  #skills {
+    background-position: 65% center;
+    background-image:
+      linear-gradient(
+        rgba(255, 255, 255, 0.94),
+        rgba(255, 255, 255, 0.94)
+      ),
+      url("assets/minimalist-wfh-background.png") !important;
+  }
+}
 </style>
 </head>
 <script>
