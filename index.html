@@ -713,6 +713,68 @@
     transition: none !important;
   }
 }
+/* About Me - text and illustration layout */
+
+#about .about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+}
+
+#about .about-text,
+#about .about-visual {
+  min-width: 0;
+}
+
+#about .about-text .section-intro {
+  max-width: none;
+}
+
+#about .about-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+}
+
+/* Smooth illustration entrance */
+@media (prefers-reduced-motion: no-preference) {
+  #about.visible .about-visual img {
+    animation: aboutImageReveal 0.9s ease-out both;
+  }
+
+  @keyframes aboutImageReveal {
+    from {
+      opacity: 0;
+      transform: translateX(25px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+/* Mobile and tablet layout */
+@media (max-width: 850px) {
+  #about .about-layout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  #about .about-visual {
+    max-width: 650px;
+    margin: 0 auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #about .about-visual img {
+    animation: none !important;
+  }
+}
 </style>
 </head>
 <script>
@@ -810,10 +872,66 @@ document.addEventListener("DOMContentLoaded", function () {
 </div>
 </div>
 <section id="about">
-<div class="container">
-<div class="eyebrow">About me</div>
-<div class="section-intro"><p>I don't just wait for instructions or complete assigned tasks. I take initiative, identify problems, find solutions, and look for opportunities to make your business run more efficiently.</p><p>I am detail-oriented, organized, dependable, adaptable, and a fast learner who can work independently with minimal supervision.</p><p><strong>My goal is simple: To take the workload off your shoulders, keep your business organized, make your daily operations easier, and give you more time to focus on growing your business.</strong></p><p><strong>If you're looking for a proactive Virtual Assistant who can manage your administrative responsibilities, communicate with customers, organize your operations, and bring additional value through process improvement, I'd love to be part of your team!</strong></p></div>
-</div>
+  <div class="container">
+
+    <div class="about-layout">
+
+      <!-- LEFT: Your existing About Me text -->
+      <div class="about-text">
+        <div class="eyebrow">About me</div>
+
+        <div class="section-intro">
+          <p>
+            I don't just wait for instructions or complete
+            assigned tasks. I take initiative, identify
+            problems, find solutions, and look for
+            opportunities to make your business run more
+            efficiently.
+          </p>
+
+          <p>
+            I am detail-oriented, organized, dependable,
+            adaptable, and a fast learner who can work
+            independently with minimal supervision.
+          </p>
+
+          <p>
+            <strong>
+              My goal is simple: To take the workload off
+              your shoulders, keep your business organized,
+              make your daily operations easier, and give
+              you more time to focus on growing your business.
+            </strong>
+          </p>
+
+          <p>
+            <strong>
+              If you're looking for a proactive Virtual
+              Assistant who can manage your administrative
+              responsibilities, communicate with customers,
+              organize your operations, and bring additional
+              value through process improvement, I'd love
+              to be part of your team!
+            </strong>
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT: Your laptop illustration -->
+      <div class="about-visual">
+        <img
+          src="assets/about-me-tools.png"
+          alt="Professional workspace illustration showing
+          Gmail, Google Sheets, Google Drive,
+          Google Calendar, Slack, NetSuite,
+          GoHighLevel, Excel, Apps Script,
+          QuickBooks and Xero"
+          loading="lazy">
+      </div>
+
+    </div>
+
+  </div>
 </section>
 <section class="cream" id="services">
 <div class="container">
