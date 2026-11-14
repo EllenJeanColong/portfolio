@@ -645,6 +645,48 @@
     transition: none;
   }
 }
+/* Clean professional portrait design */
+
+.hero-image {
+  position: relative;
+  isolation: isolate;
+  animation: fadeRight 1s ease-out both;
+}
+
+/* Remove extra decorative frame */
+.hero-image::before,
+.hero-image::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Professional photo styling */
+.hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(16, 29, 56, 0.18);
+}
+
+/* Cleaner photo caption */
+.hero-image .photo-caption {
+  position: static;
+  margin-top: 12px;
+  padding: 0;
+  background: transparent;
+  color: #52617c;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Respect accessibility settings */
+@media (prefers-reduced-motion: reduce) {
+  .hero-image {
+    animation: none;
+  }
+}
 </style>
 </head>
 <body>
