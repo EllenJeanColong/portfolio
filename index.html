@@ -812,6 +812,96 @@
       url("assets/minimalist-wfh-background.png") !important;
   }
 }
+/* Premium corporate Services section */
+
+#services {
+  background:
+    radial-gradient(
+      ellipse at top left,
+      rgba(32,105,197,.12),
+      transparent 55%
+    ),
+    linear-gradient(
+      135deg,
+      #f5f8fd 0%,
+      #eaf1fa 55%,
+      #f9f8f5 100%
+    ) !important;
+}
+
+#services .services-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+#services .services-cards .card {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  min-width: 0;
+  padding: 30px;
+  background: rgba(255,255,255,.96);
+  border: 1px solid #dce5f1;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(16,29,56,.08);
+  transition: transform .3s ease,
+              box-shadow .3s ease;
+}
+
+#services .services-cards .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(16,29,56,.14);
+}
+
+#services .service-icon {
+  flex: 0 0 66px;
+  width: 66px;
+  height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: #f2f5fa;
+  font-size: 30px;
+}
+
+#services .services-cards .card h3 {
+  color: #101d38;
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+}
+
+#services .services-cards .card p {
+  color: #52617c;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Mobile layout */
+@media (max-width: 850px) {
+  #services .services-cards {
+    grid-template-columns: 1fr;
+  }
+
+  #services .services-cards .card {
+    padding: 22px;
+    gap: 16px;
+  }
+
+  #services .service-icon {
+    flex-basis: 52px;
+    width: 52px;
+    height: 52px;
+    font-size: 25px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #services .services-cards .card {
+    transition: none;
+  }
+}
 </style>
 </head>
 <script>
@@ -974,7 +1064,73 @@ document.addEventListener("DOMContentLoaded", function () {
 <div class="container">
 <div class="eyebrow">What I can contribute</div>
 <div class="section-intro"><h2>Here's how I can support your business:</h2></div>
-<div class="cards"><article class="card"><div class="number">01 /</div><h3>Calendar &amp; Appointment Management</h3><p>Schedule meetings, organize calendars, coordinate appointments, and manage reminders.</p></article><article class="card"><div class="number">02 /</div><h3>Email &amp; Inbox Management</h3><p>Organize emails, prepare professional responses, monitor important conversations, and track follow-ups.</p></article><article class="card"><div class="number">03 /</div><h3>Customer Support</h3><p>Communicate with customers, respond to inquiries, resolve concerns, and maintain positive client relationships.</p></article><article class="card"><div class="number">04 /</div><h3>Executive &amp; Administrative Assistance</h3><p>Coordinate meetings, manage daily tasks, organize documents, and support business operations.</p></article><article class="card"><div class="number">05 /</div><h3>Data Entry &amp; Reporting</h3><p>Maintain accurate records, update spreadsheets, prepare reports, and organize business information.</p></article><article class="card"><div class="number">06 /</div><h3>Workflow Automation</h3><p>Identify repetitive processes and develop solutions that save time and improve productivity.</p></article><article class="card"><div class="number">07 /</div><h3>Task &amp; Project Coordination</h3><p>Monitor deadlines, track progress, communicate with stakeholders, and ensure tasks are completed on time.</p></article><article class="card"><div class="number">08 /</div><h3>Business Organization</h3><p>Keep files, schedules, records, communications, and workflows organized and easy to manage.</p></article></div>
+<div class="cards services-cards">
+
+  <article class="card">
+    <div class="service-icon">📅</div>
+    <div>
+      <h3>Calendar &amp; Appointment Management</h3>
+      <p>Schedule meetings, organize calendars, coordinate appointments, and manage reminders.</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="service-icon">✉️</div>
+    <div>
+      <h3>Email &amp; Inbox Management</h3>
+      <p>Organize emails, prepare professional responses, monitor important conversations, and track follow-ups.</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="service-icon">🎧</div>
+    <div>
+      <h3>Customer Support</h3>
+      <p>Communicate with customers, respond to inquiries, resolve concerns, and maintain positive client relationships.</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="service-icon">💼</div>
+    <div>
+      <h3>Executive &amp; Administrative Assistance</h3>
+      <p>Coordinate meetings, manage daily tasks, organize documents, and support business operations.</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="service-icon">📊</div>
+    <div>
+      <h3>Data Entry &amp; Reporting</h3>
+      <p>Maintain accurate records, update spreadsheets, prepare reports, and organize business information.</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="service-icon">⚙️</div>
+    <div>
+      <h3>Workflow Automation</h3>
+      <p>Identify repetitive processes and develop solutions that save time and improve productivity.</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="service-icon">☑️</div>
+    <div>
+      <h3>Task &amp; Project Coordination</h3>
+      <p>Monitor deadlines, track progress, communicate with stakeholders, and ensure tasks are completed on time.</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="service-icon">📁</div>
+    <div>
+      <h3>Business Organization</h3>
+      <p>Keep files, schedules, records, communications, and workflows organized and easy to manage.</p>
+    </div>
+  </article>
+
+</div>
 </div>
 </section>
 <section id="project">
