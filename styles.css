@@ -199,3 +199,26 @@ main > section h2 { margin-bottom: 1.15rem; }
 
 @media (prefers-reduced-motion: no-preference) { .hero-copy > .eyebrow { animation: solutions-tagline-in .65s ease-out both; } }
 @keyframes solutions-tagline-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Rectangular profile portrait */
+.profile-card img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:center;border-radius:20px;border:0;margin:0 auto 1.3rem;box-shadow:0 10px 25px #624b3020;transition:transform .45s ease,box-shadow .45s ease;}
+@media(prefers-reduced-motion:no-preference){.profile-card img{animation:portrait-reveal .85s cubic-bezier(.2,.8,.2,1) both}.profile-card:hover img{transform:scale(1.025);box-shadow:0 16px 30px #624b3030}}
+@keyframes portrait-reveal{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(prefers-reduced-motion:reduce){.profile-card img{animation:none;transition:none}}
+
+/* Combined contact and interview page */
+.connect-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1rem,3vw,2.5rem);align-items:stretch;max-width:74rem}.connect-details,.connect-booking{padding:clamp(1.5rem,3vw,2.5rem);text-align:left}.connect-details h2,.connect-booking h2{margin-inline:0}.connect-details .actions{justify-content:flex-start!important;flex-wrap:wrap}.connect-booking{background:#fffdf9;border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 24px #624b3010}.connect-booking .panel{box-shadow:none;padding:0;border:0;background:transparent}.connect-booking .btn{margin-top:1rem}@media(max-width:44rem){.connect-grid{grid-template-columns:1fr}}
+
+.document-label { margin-top: 1.2rem; margin-bottom: .45rem; font-size: .88rem; font-weight: 700; color: #89563e; }
+.document-label + .actions { margin-top: 0; }
+
+/* Animated underline for the home navigation title */
+.nav .brand{position:relative;display:inline-block;flex-shrink:0;color:#245449;cursor:pointer;padding:.2rem 0 .35rem;text-decoration:none;transition:color .25s ease;}
+.nav .brand::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:2px;background:#28584e;transform-origin:left;transition:transform .25s ease,background .25s ease;}
+.nav .brand:hover,.nav .brand:focus-visible{color:#80513e;}
+.nav .brand:hover::after,.nav .brand:focus-visible::after{background:#80513e;transform:scaleY(1.6);}
+.nav .brand:focus-visible{outline:2px solid #28584e;outline-offset:5px;}
+@media(prefers-reduced-motion:no-preference){.nav .brand::after{animation:brand-underline 1.1s ease-out both;}}
+@keyframes brand-underline{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media(prefers-reduced-motion:reduce){.nav .brand,.nav .brand::after{transition:none;animation:none;}}
+@media(max-width:31rem){.nav .brand{font-size:1.05rem;}}
