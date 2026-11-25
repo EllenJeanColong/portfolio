@@ -1,0 +1,6 @@
+// Paste your public Google Calendar appointment schedule URL here.
+const BOOKING_URL = "https://calendar.app.google/P77F76J2LQb6Jh146";
+const menu=document.querySelector('#menu'), nav=document.querySelector('#navlinks');
+const pages=[...document.querySelectorAll('main > section')];
+function show(){let id=location.hash.slice(1)||'home';if(id==='markets')id='experience';if(!pages.some(p=>p.id===id))id='home';pages.forEach(p=>{p.hidden=p.id!==id;p.classList.remove('enter');});const page=document.getElementById(id);void page.offsetWidth;page.classList.add('enter');document.querySelector('main').scrollTop=0;window.scrollTo(0,0);nav.querySelectorAll('a').forEach(a=>{if(a.hash==='#'+id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});nav.classList.remove('open');menu.setAttribute('aria-expanded','false');}
+menu.onclick=()=>menu.setAttribute('aria-expanded',String(nav.classList.toggle('open')));window.addEventListener('hashchange',show);document.getElementById('year').textContent=new Date().getFullYear();if(BOOKING_URL.startsWith('https://')){const a=document.getElementById('booking-link');a.href=BOOKING_URL;a.hidden=false;document.getElementById('booking-status').textContent='Select an available appointment on my booking calendar. Times are shown in your local time zone.';}show();
